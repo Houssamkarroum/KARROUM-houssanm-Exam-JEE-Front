@@ -6,9 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class ClientService {
   private apiUrl = 'http://localhost:8085//api/clients';
-
   constructor(private http: HttpClient) {}
-
   getAll(): Observable<Client[]> {
     return this.http.get<Client[]>(this.apiUrl);
   }
