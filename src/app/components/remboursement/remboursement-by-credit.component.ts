@@ -4,6 +4,7 @@ import { RemboursementService } from '../../services/remboursement.service';
 import { Remboursement } from '../../model/remboursement.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 
 @Component({
   selector: 'app-remboursement-by-credit',

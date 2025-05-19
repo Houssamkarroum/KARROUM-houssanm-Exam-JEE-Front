@@ -4,6 +4,7 @@ import { CreditService } from '../../services/credit.service';
 import { Credit } from '../../model/credit.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 
 @Component({
   selector: 'app-credit-by-client',

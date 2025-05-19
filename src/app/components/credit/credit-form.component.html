@@ -2,18 +2,19 @@
 
 <form class="credit-form" (ngSubmit)="save()">
   <label class="credit-label">Client :</label>
-  <select name="clientId" required class="credit-input">
+  <select name="clientId" required class="credit-input" [(ngModel)]="selectedClientId">
     <option *ngFor="let c of clients" [value]="c.id">{{ c.nom }}</option>
   </select>
+  <p>client id {{selectedClientId}}</p>
 
   <label class="credit-label">Montant :</label>
-  <input name="montant" type="number" required class="credit-input" />
+  <input name="montant" type="number" required class="credit-input" [(ngModel)]="montant" />
 
   <label class="credit-label">Taux d’intérêt :</label>
-  <input name="taux" type="number" required class="credit-input" />
+  <input name="taux" type="number" required class="credit-input" [(ngModel)]="taux" />
 
   <label class="credit-label">Durée (mois) :</label>
-  <input name="duree" type="number" required class="credit-input" />
+  <input name="duree" type="number" required class="credit-input" [(ngModel)]="duree" />
 
   <button type="submit" class="credit-submit-btn">💾 Enregistrer</button>
 </form>

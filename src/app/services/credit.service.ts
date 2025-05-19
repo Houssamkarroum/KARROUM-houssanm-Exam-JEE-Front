@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class CreditService {
-  private apiUrl = 'http://localhost:8085//api/credits';
+  private apiUrl = 'http://localhost:8085/api/credits';
 
   constructor(private http: HttpClient) {}
 

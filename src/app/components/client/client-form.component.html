@@ -1,10 +1,9 @@
 <h2 class="client-form-title">Ajouter un Client</h2>
-<form class="client-form" (ngSubmit)="save()">
-  <input type="text" placeholder="Nom" name="nom" required class="client-input">
-  <input type="email" placeholder="Email" name="email" required class="client-input">
+<form class="client-form" (ngSubmit)="save()" #clientForm="ngForm">
+  <input type="text" placeholder="Nom" name="nom" [(ngModel)]="nom" required class="client-input">
+  <input type="email" placeholder="Email" name="email" [(ngModel)]="email" required class="client-input">
   <button type="submit" class="client-submit-btn">✅ Enregistrer</button>
 </form>
-
 <style>
 .client-form-title {
   text-align: center;

@@ -13,10 +13,10 @@
   <tbody>
     <tr *ngFor="let credit of credits">
       <td>{{ credit.id }}</td>
-      <td>{{ credit.clientName }}</td>
-      <td>{{ credit.amount | currency:'EUR':'symbol':'1.0-0' }}</td>
-      <td>{{ credit.dueDate | date:'dd/MM/yyyy' }}</td>
-      <td>{{ credit.status }}</td>
+      <td>{{ credit.clientId }}</td>
+      <td>{{ credit.montant | currency:'EUR':'symbol':'1.0-0' }}</td>
+      <td>{{ credit.dateDemande }}</td>
+      <td>{{ credit.statut }}</td>
     </tr>
   </tbody>
 </table>

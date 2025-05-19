@@ -10,18 +10,20 @@
             required
             min="1"
             class="form-control"
+            [(ngModel)]="remboursement.creditId"
             placeholder="Entrez l'ID du crédit"
         />
     </div>
 
     <div class="form-group">
-        <label for="date" class="remb-label">Date :</label>
+        <label for="date " class="remb-label">Date :</label>
         <input
             id="date"
             name="date"
             type="date"
             required
             class="form-control"
+            [(ngModel)]="remboursement.date"
         />
     </div>
 
@@ -34,6 +36,7 @@
             required
             min="1"
             class="form-control"
+            [(ngModel)]="remboursement.montant"
             placeholder="Entrez le montant"
         />
     </div>
@@ -45,8 +48,9 @@
             name="type"
             required
             class="form-control"
+            [(ngModel)]="remboursement.type"
         >
-            <option value="" disabled selected>Choisissez le type</option>
+            <option value="" disabled>Choisissez le type</option>
             <option value="MENSUEL">Mensuel</option>
             <option value="ANTICIPE">Anticipé</option>
         </select>
@@ -56,87 +60,78 @@
         💾 Enregistrer
     </button>
 </form>
-
 <style>
-.remb-form-title {
-    text-align: center;
-    color: #1976d2;
-    margin-bottom: 22px;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    font-size: 2rem;
-    letter-spacing: 1px;
-}
-
-.remboursement-form {
-    max-width: 400px;
-    margin: 0 auto;
-    background: #f8f9fa;
-    padding: 28px 32px;
-    border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(44, 62, 80, 0.09);
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-}
-
-.form-group {
-    margin-bottom: 1em;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.remb-label {
-    margin-bottom: 6px;
-    color: #222;
-    font-weight: 500;
-    font-size: 1rem;
-    font-family: 'Segoe UI', Arial, sans-serif;
-}
-
-.form-control {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #bfc9d1;
-    border-radius: 6px;
-    font-size: 1rem;
-    transition: border 0.2s;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #fff;
-    box-sizing: border-box;
-}
-
-.form-control:focus {
-    border: 1.5px solid #1976d2;
-    outline: none;
-}
-
-.remb-btn {
-    background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
-    color: #fff;
-    border: none;
-    padding: 10px 22px;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s, box-shadow 0.2s;
-    box-shadow: 0 2px 8px rgba(67, 233, 123, 0.08);
-    margin-top: 10px;
-}
-.remb-btn:disabled {
-    background: #bfc9d1;
-    cursor: not-allowed;
-}
-.remb-btn:hover:enabled {
-    background: linear-gradient(90deg, #38f9d7 0%, #43e97b 100%);
-    box-shadow: 0 4px 16px rgba(67, 233, 123, 0.15);
-}
-
-@media (max-width: 600px) {
-    .remboursement-form {
-        max-width: 98vw;
-        padding: 18px 6vw;
+    .remb-form-title {
+        text-align: center;
+        color: #1976d2;
+        margin-bottom: 24px;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-size: 2rem;
+        letter-spacing: 1px;
     }
-}
+
+    .remboursement-form {
+        width: 95%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
+        background-color: #f8f9fa;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .remb-label {
+        font-weight: bold;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        box-sizing: border-box;
+        margin-top: 4px;
+    }
+
+    .form-control:focus {
+        border-color: #1976d2;
+        outline: none;
+        box-shadow: 0 0 5px rgba(25, 118, 210, 0.5);
+    }
+
+    .form-control:disabled {
+        background-color: #e9ecef;
+        opacity: 1;
+        cursor: not-allowed;
+        box-shadow: none;
+    }
+
+    .remb-btn {
+        background-color: #1976d2;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background 0.2s;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .remb-btn:hover:enabled {
+        background-color: #155a8a;
+    }
+
+    .remb-btn:disabled {
+        background-color: #b0bec5;
+        cursor: not-allowed;
+    }
 </style>

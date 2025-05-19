@@ -3,14 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 
-interface Credit {
-    id: number;
-    clientName: string;
-    amount: number;
-    dueDate: string;
-    status: string;
-}
+import { Credit } from '../../model/credit.model';
+import { CreditService } from '../../services/credit.service';
+import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgModule } from '@angular/core';   
 
 @Component({
     selector: 'app-credit-list',
@@ -20,13 +20,19 @@ interface Credit {
 })
 export class CreditListComponent implements OnInit {
 
-    credits: Credit[] = [];
+    credits!: Credit[];
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private creditservice : CreditService) { }
 
     ngOnInit(): void {
-        this.http.get<Credit[]>('http://localhost:8080/api/credits')
-            .subscribe(data => this.credits = data);
+        this.creditservice.getAll().subscribe({
+            next: (credits) => this.credits = credits,
+            complete: () => console.log('Credits loaded successfully'+ this.credits),
+            error: (err) => {
+                console.error('Failed to load credits:', err);
+                this.credits = [];
+            }
+        });
     }
 
 }
