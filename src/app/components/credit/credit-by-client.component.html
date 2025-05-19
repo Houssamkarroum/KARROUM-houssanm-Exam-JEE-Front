@@ -1,7 +1,94 @@
-<h2>Crédits du Client</h2>
-<ul>
-  <li *ngFor="let credit of credits">
-    Montant: {{ credit.montant }}€ - Statut: {{ credit.statut }} <br>
-    <a [routerLink]="['/remboursements/by-credit', credit.id]">💰 Voir remboursements</a>
+<h2 class="credit-title">Crédits du Client</h2>
+<ul class="credit-list">
+  <li *ngFor="let credit of credits" class="credit-item">
+    <div class="credit-info">
+      <span class="credit-montant">Montant: <strong>{{ credit.montant }}€</strong></span>
+      <span class="credit-statut">Statut: <strong>{{ credit.statut }}</strong></span>
+    </div>
+    <a [routerLink]="['/remboursements/by-credit', credit.id]" class="remb-link">
+      💰 Voir remboursements
+    </a>
   </li>
 </ul>
+
+<style>
+.credit-title {
+  text-align: center;
+  color: #1976d2;
+  margin-bottom: 24px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.credit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 500px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
+}
+
+.credit-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1em 1.5em;
+  border-bottom: 1px solid #e0e6ed;
+  transition: background 0.15s;
+}
+.credit-item:last-child {
+  border-bottom: none;
+}
+.credit-item:hover {
+  background: #eaf6fb;
+}
+
+.credit-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+.credit-montant {
+  color: #222;
+  font-size: 1.05rem;
+}
+.credit-statut {
+  color: #388e3c;
+  font-size: 1rem;
+}
+
+.remb-link {
+  background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+  color: #fff;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(67, 233, 123, 0.08);
+}
+.remb-link:hover {
+  background: linear-gradient(90deg, #38f9d7 0%, #43e97b 100%);
+  box-shadow: 0 4px 16px rgba(67, 233, 123, 0.15);
+}
+
+@media (max-width: 600px) {
+  .credit-list {
+    max-width: 98vw;
+  }
+  .credit-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7em;
+    padding: 1em;
+  }
+  .remb-link {
+    width: 100%;
+    text-align: right;
+  }
+}
+</style>

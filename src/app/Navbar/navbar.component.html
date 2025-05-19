@@ -1,4 +1,46 @@
-<nav>
-  <a routerLink="/clients">Clients</a>
-  <a routerLink="/credits">Crédits</a>
+<nav class="navbar">
+  <a routerLink="/clients" routerLinkActive="active-link">Clients</a>
+  <a routerLink="/credits" routerLinkActive="active-link">Crédits</a>
 </nav>
+
+<style>
+.navbar {
+  background: #181c24;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  border-bottom: 1.5px solid #232a36;
+}
+
+.navbar a {
+  color: #e0e6ed;
+  text-decoration: none;
+  font-size: 1.15rem;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 500;
+  padding: 0.4em 1.1em;
+  border-radius: 5px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.navbar a:hover,
+.navbar .active-link {
+  background: #232a36;
+  color: #43e97b;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.7rem 0;
+  }
+  .navbar a {
+    width: 90vw;
+    text-align: center;
+  }
+}
+</style>

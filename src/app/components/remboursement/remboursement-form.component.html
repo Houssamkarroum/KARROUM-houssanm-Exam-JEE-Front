@@ -1,8 +1,8 @@
-<h2>Ajouter un remboursement</h2>
+<h2 class="remb-form-title">Ajouter un remboursement</h2>
 
 <form (ngSubmit)="save()" #remboursementForm="ngForm" class="remboursement-form">
     <div class="form-group">
-        <label for="creditId">ID du crédit :</label>
+        <label for="creditId" class="remb-label">ID du crédit :</label>
         <input
             id="creditId"
             name="creditId"
@@ -15,7 +15,7 @@
     </div>
 
     <div class="form-group">
-        <label for="date">Date :</label>
+        <label for="date" class="remb-label">Date :</label>
         <input
             id="date"
             name="date"
@@ -26,7 +26,7 @@
     </div>
 
     <div class="form-group">
-        <label for="montant">Montant :</label>
+        <label for="montant" class="remb-label">Montant :</label>
         <input
             id="montant"
             name="montant"
@@ -39,7 +39,7 @@
     </div>
 
     <div class="form-group">
-        <label for="type">Type :</label>
+        <label for="type" class="remb-label">Type :</label>
         <select
             id="type"
             name="type"
@@ -52,30 +52,91 @@
         </select>
     </div>
 
-    <button type="submit" [disabled]="remboursementForm.invalid" class="btn btn-primary">
+    <button type="submit" [disabled]="remboursementForm.invalid" class="remb-btn">
         💾 Enregistrer
     </button>
 </form>
 
 <style>
+.remb-form-title {
+    text-align: center;
+    color: #1976d2;
+    margin-bottom: 22px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
 .remboursement-form {
     max-width: 400px;
     margin: 0 auto;
+    background: #f8f9fa;
+    padding: 28px 32px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(44, 62, 80, 0.09);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
 }
+
 .form-group {
     margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
+
+.remb-label {
+    margin-bottom: 6px;
+    color: #222;
+    font-weight: 500;
+    font-size: 1rem;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
 .form-control {
     width: 100%;
-    padding: 0.5em;
+    padding: 10px 12px;
+    border: 1px solid #bfc9d1;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border 0.2s;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #fff;
     box-sizing: border-box;
 }
-.error {
-    color: #d9534f;
-    font-size: 0.9em;
+
+.form-control:focus {
+    border: 1.5px solid #1976d2;
+    outline: none;
 }
-.btn {
-    padding: 0.5em 1em;
-    font-size: 1em;
+
+.remb-btn {
+    background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(67, 233, 123, 0.08);
+    margin-top: 10px;
+}
+.remb-btn:disabled {
+    background: #bfc9d1;
+    cursor: not-allowed;
+}
+.remb-btn:hover:enabled {
+    background: linear-gradient(90deg, #38f9d7 0%, #43e97b 100%);
+    box-shadow: 0 4px 16px rgba(67, 233, 123, 0.15);
+}
+
+@media (max-width: 600px) {
+    .remboursement-form {
+        max-width: 98vw;
+        padding: 18px 6vw;
+    }
 }
 </style>

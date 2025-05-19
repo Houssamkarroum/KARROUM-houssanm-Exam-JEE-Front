@@ -1,4 +1,4 @@
-<h2>Liste des clients</h2>
+<h2 class="client-list-title">Liste des clients</h2>
 <div class="actions">
   <a routerLink="/clients/add" class="add-btn">➕ Ajouter un client</a>
 </div>
@@ -20,53 +20,139 @@
   </li>
 </ul>
 
-<!-- Optional: Add some basic styles for better appearance -->
 <style>
-  .actions {
-    margin-bottom: 1em;
-  }
-  .add-btn {
-    background: #4caf50;
-    color: white;
-    padding: 0.5em 1em;
-    text-decoration: none;
-    border-radius: 4px;
-  }
-  .client-list {
-    list-style: none;
-    padding: 0;
+.client-list-title {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 24px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.5em;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.add-btn {
+  background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+  color: #fff;
+  padding: 0.6em 1.4em;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(67, 233, 123, 0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.add-btn:hover {
+  background: linear-gradient(90deg, #38f9d7 0%, #43e97b 100%);
+  box-shadow: 0 4px 16px rgba(67, 233, 123, 0.15);
+}
+
+.client-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 600px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
+}
+
+.client-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1em 1.5em;
+  border-bottom: 1px solid #e0e6ed;
+  transition: background 0.15s;
+}
+.client-item:last-child {
+  border-bottom: none;
+}
+.client-item:hover {
+  background: #eaf6fb;
+}
+
+.client-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.client-info strong {
+  font-size: 1.1rem;
+  color: #222;
+  letter-spacing: 0.5px;
+}
+.client-email {
+  margin-top: 2px;
+  color: #2980b9;
+  font-size: 0.98rem;
+  opacity: 0.85;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.client-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.delete-btn {
+  background: linear-gradient(90deg, #e53935 0%, #e35d5b 100%);
+  color: #fff;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(229, 57, 53, 0.07);
+}
+.delete-btn:hover {
+  background: linear-gradient(90deg, #e35d5b 0%, #e53935 100%);
+  box-shadow: 0 4px 16px rgba(229, 57, 53, 0.13);
+}
+
+.credits-link {
+  background: linear-gradient(90deg, #1976d2 0%, #64b5f6 100%);
+  color: #fff;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.07);
+}
+.credits-link:hover {
+  background: linear-gradient(90deg, #64b5f6 0%, #1976d2 100%);
+  box-shadow: 0 4px 16px rgba(25, 118, 210, 0.13);
+}
+
+@media (max-width: 700px) {
+  .client-list, .actions {
+    max-width: 98vw;
   }
   .client-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75em;
-    border-bottom: 1px solid #ddd;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7em;
+    padding: 1em;
   }
-  .client-info {
-    flex: 1;
+  .client-actions {
+    width: 100%;
+    justify-content: flex-end;
   }
-  .client-email {
-    margin-left: 1em;
-    color: #555;
-  }
-  .client-actions button,
-  .client-actions a {
-    margin-left: 0.5em;
-  }
-  .delete-btn {
-    background: #e53935;
-    color: white;
-    border: none;
-    padding: 0.4em 0.8em;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  .credits-link {
-    background: #1976d2;
-    color: white;
-    padding: 0.4em 0.8em;
-    border-radius: 4px;
-    text-decoration: none;
-  }
+}
 </style>

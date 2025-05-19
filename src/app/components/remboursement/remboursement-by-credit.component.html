@@ -1,17 +1,79 @@
-<h2 class="title">Remboursements du Crédit #{{ creditId }}</h2>
+<h2 class="remb-title">Remboursements du Crédit #{{ creditId }}</h2>
 
-<ul class="remboursement-list">
-    <li *ngFor="let r of remboursements" class="remboursement-item">
-        <span class="date">📅 {{ r.date | date:'dd/MM/yyyy' }}</span>
-        <span class="amount">💵 {{ r.montant | number:'1.2-2' }} DH</span>
-        <span class="type">🏷️ {{ r.type }}</span>
+<ul class="remb-list">
+    <li *ngFor="let r of remboursements" class="remb-item">
+        <span class="remb-date">📅 {{ r.date | date:'dd/MM/yyyy' }}</span>
+        <span class="remb-amount">💵 {{ r.montant | number:'1.2-2' }} DH</span>
+        <span class="remb-type">🏷️ {{ r.type }}</span>
     </li>
 </ul>
 
-<!-- Optional: Add some basic styles -->
 <style>
-    .title { margin-bottom: 1rem; }
-    .remboursement-list { list-style: none; padding: 0; }
-    .remboursement-item { padding: 0.5rem 0; border-bottom: 1px solid #eee; display: flex; gap: 1.5rem; align-items: center; }
-    .date, .amount, .type { min-width: 120px; }
+.remb-title {
+  text-align: center;
+  color: #1976d2;
+  margin-bottom: 24px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.remb-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 500px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
+}
+
+.remb-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1em 1.5em;
+  border-bottom: 1px solid #e0e6ed;
+  transition: background 0.15s;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+.remb-item:last-child {
+  border-bottom: none;
+}
+.remb-item:hover {
+  background: #eaf6fb;
+}
+
+.remb-date {
+  color: #2980b9;
+  min-width: 120px;
+  font-size: 1.05rem;
+}
+.remb-amount {
+  color: #388e3c;
+  min-width: 120px;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.remb-type {
+  color: #8e44ad;
+  min-width: 120px;
+  font-size: 1.05rem;
+}
+
+@media (max-width: 600px) {
+  .remb-list {
+    max-width: 98vw;
+  }
+  .remb-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7em;
+    padding: 1em;
+  }
+  .remb-date, .remb-amount, .remb-type {
+    min-width: unset;
+    width: 100%;
+  }
+}
 </style>

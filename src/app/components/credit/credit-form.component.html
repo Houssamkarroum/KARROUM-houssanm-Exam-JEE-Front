@@ -1,19 +1,98 @@
-<h2>Ajouter un crédit</h2>
+<h2 class="credit-form-title">Ajouter un crédit</h2>
 
-<form (ngSubmit)="save()">
-  <label>Client :</label>
-  <select name="clientId" required>
+<form class="credit-form" (ngSubmit)="save()">
+  <label class="credit-label">Client :</label>
+  <select name="clientId" required class="credit-input">
     <option *ngFor="let c of clients" [value]="c.id">{{ c.nom }}</option>
   </select>
 
-  <label>Montant :</label>
-  <input  name="montant" type="number" required />
+  <label class="credit-label">Montant :</label>
+  <input name="montant" type="number" required class="credit-input" />
 
-  <label>Taux d’intérêt :</label>
-  <input name="taux" type="number" required />
+  <label class="credit-label">Taux d’intérêt :</label>
+  <input name="taux" type="number" required class="credit-input" />
 
-  <label>Durée (mois) :</label>
-  <input name="duree" type="number" required />
+  <label class="credit-label">Durée (mois) :</label>
+  <input name="duree" type="number" required class="credit-input" />
 
-  <button type="submit">💾 Enregistrer</button>
+  <button type="submit" class="credit-submit-btn">💾 Enregistrer</button>
 </form>
+
+<style>
+.credit-form-title {
+  text-align: center;
+  color: #1976d2;
+  margin-bottom: 22px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.credit-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 28px 36px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.09);
+  max-width: 370px;
+  margin: 0 auto;
+  gap: 0.5em;
+}
+
+.credit-label {
+  align-self: flex-start;
+  margin-bottom: 4px;
+  color: #222;
+  font-weight: 500;
+  font-size: 1rem;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.credit-input {
+  width: 100%;
+  max-width: 270px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border: 1px solid #bfc9d1;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border 0.2s;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #fff;
+}
+
+.credit-input:focus {
+  border: 1.5px solid #1976d2;
+  outline: none;
+}
+
+.credit-submit-btn {
+  background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(67, 233, 123, 0.08);
+  margin-top: 10px;
+}
+.credit-submit-btn:hover {
+  background: linear-gradient(90deg, #38f9d7 0%, #43e97b 100%);
+  box-shadow: 0 4px 16px rgba(67, 233, 123, 0.15);
+}
+
+@media (max-width: 600px) {
+  .credit-form {
+    max-width: 98vw;
+    padding: 18px 6vw;
+  }
+  .credit-input {
+    max-width: 100%;
+  }
+}
+</style>
