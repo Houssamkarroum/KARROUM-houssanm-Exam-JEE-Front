@@ -1,0 +1,9 @@
+<h2>Liste des Clients</h2>
+<a routerLink="/clients/add">➕ Ajouter un client</a>
+<ul>
+  <li *ngFor="let client of clients">
+    {{ client.nom }} ({{ client.email }})
+    <button (click)="deleteClient(client.id)">❌ Supprimer</button>
+    <a [routerLink]="['/credits/by-client', client.id]">📄 Crédits</a>
+  </li>
+</ul>
