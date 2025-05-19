@@ -1,12 +1,5 @@
-import { StatutCredit } from './statut-credit.enum';
-
-export interface Credit {
+export interface Client {
   id?: number;
-  dateDemande: Date;
-  statut: StatutCredit;
-  dateAcceptation: Date | null;
-  montant: number;
-  dureeRemboursement: number;
-  tauxInteret: number;
-  clientId: number;
+  nom: string;
+  email: string;
 }
