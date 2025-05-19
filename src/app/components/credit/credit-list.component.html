@@ -1,0 +1,22 @@
+<h2>Liste des crédits</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Client</th>
+      <th>Montant (€)</th>
+      <th>Date d'échéance</th>
+      <th>Statut</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let credit of credits">
+      <td>{{ credit.id }}</td>
+      <td>{{ credit.clientName }}</td>
+      <td>{{ credit.amount | currency:'EUR':'symbol':'1.0-0' }}</td>
+      <td>{{ credit.dueDate | date:'dd/MM/yyyy' }}</td>
+      <td>{{ credit.status }}</td>
+    </tr>
+  </tbody>
+</table>

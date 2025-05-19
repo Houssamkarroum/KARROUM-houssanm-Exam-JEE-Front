@@ -1,0 +1,7 @@
+<h2>Crédits du Client</h2>
+<ul>
+  <li *ngFor="let credit of credits">
+    Montant: {{ credit.montant }}€ - Statut: {{ credit.statut }} <br>
+    <a [routerLink]="['/remboursements/by-credit', credit.id]">💰 Voir remboursements</a>
+  </li>
+</ul>

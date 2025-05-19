@@ -1,0 +1,17 @@
+<h2 class="title">Remboursements du Crédit #{{ creditId }}</h2>
+
+<ul class="remboursement-list">
+    <li *ngFor="let r of remboursements" class="remboursement-item">
+        <span class="date">📅 {{ r.date | date:'dd/MM/yyyy' }}</span>
+        <span class="amount">💵 {{ r.montant | number:'1.2-2' }} DH</span>
+        <span class="type">🏷️ {{ r.type }}</span>
+    </li>
+</ul>
+
+<!-- Optional: Add some basic styles -->
+<style>
+    .title { margin-bottom: 1rem; }
+    .remboursement-list { list-style: none; padding: 0; }
+    .remboursement-item { padding: 0.5rem 0; border-bottom: 1px solid #eee; display: flex; gap: 1.5rem; align-items: center; }
+    .date, .amount, .type { min-width: 120px; }
+</style>

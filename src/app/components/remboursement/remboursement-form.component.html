@@ -1,0 +1,81 @@
+<h2>Ajouter un remboursement</h2>
+
+<form (ngSubmit)="save()" #remboursementForm="ngForm" class="remboursement-form">
+    <div class="form-group">
+        <label for="creditId">ID du crédit :</label>
+        <input
+            id="creditId"
+            name="creditId"
+            type="number"
+            required
+            min="1"
+            class="form-control"
+            placeholder="Entrez l'ID du crédit"
+        />
+    </div>
+
+    <div class="form-group">
+        <label for="date">Date :</label>
+        <input
+            id="date"
+            name="date"
+            type="date"
+            required
+            class="form-control"
+        />
+    </div>
+
+    <div class="form-group">
+        <label for="montant">Montant :</label>
+        <input
+            id="montant"
+            name="montant"
+            type="number"
+            required
+            min="1"
+            class="form-control"
+            placeholder="Entrez le montant"
+        />
+    </div>
+
+    <div class="form-group">
+        <label for="type">Type :</label>
+        <select
+            id="type"
+            name="type"
+            required
+            class="form-control"
+        >
+            <option value="" disabled selected>Choisissez le type</option>
+            <option value="MENSUEL">Mensuel</option>
+            <option value="ANTICIPE">Anticipé</option>
+        </select>
+    </div>
+
+    <button type="submit" [disabled]="remboursementForm.invalid" class="btn btn-primary">
+        💾 Enregistrer
+    </button>
+</form>
+
+<style>
+.remboursement-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+.form-group {
+    margin-bottom: 1em;
+}
+.form-control {
+    width: 100%;
+    padding: 0.5em;
+    box-sizing: border-box;
+}
+.error {
+    color: #d9534f;
+    font-size: 0.9em;
+}
+.btn {
+    padding: 0.5em 1em;
+    font-size: 1em;
+}
+</style>

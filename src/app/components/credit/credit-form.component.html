@@ -1,0 +1,19 @@
+<h2>Ajouter un crédit</h2>
+
+<form (ngSubmit)="save()">
+  <label>Client :</label>
+  <select name="clientId" required>
+    <option *ngFor="let c of clients" [value]="c.id">{{ c.nom }}</option>
+  </select>
+
+  <label>Montant :</label>
+  <input  name="montant" type="number" required />
+
+  <label>Taux d’intérêt :</label>
+  <input name="taux" type="number" required />
+
+  <label>Durée (mois) :</label>
+  <input name="duree" type="number" required />
+
+  <button type="submit">💾 Enregistrer</button>
+</form>

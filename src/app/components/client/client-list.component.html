@@ -1,0 +1,72 @@
+<h2>Liste des clients</h2>
+<div class="actions">
+  <a routerLink="/clients/add" class="add-btn">➕ Ajouter un client</a>
+</div>
+
+<ul class="client-list">
+  <li *ngFor="let client of clients" class="client-item">
+    <div class="client-info">
+      <strong>{{ client.nom }}</strong>
+      <span class="client-email">{{ client.email }}</span>
+    </div>
+    <div class="client-actions">
+      <button (click)="deleteClient(client)" class="delete-btn" title="Supprimer">
+        🗑️ Supprimer
+      </button>
+      <a [routerLink]="['/credits/by-client', client.id]" class="credits-link" title="Voir les crédits">
+        📋 Crédits
+      </a>
+    </div>
+  </li>
+</ul>
+
+<!-- Optional: Add some basic styles for better appearance -->
+<style>
+  .actions {
+    margin-bottom: 1em;
+  }
+  .add-btn {
+    background: #4caf50;
+    color: white;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  .client-list {
+    list-style: none;
+    padding: 0;
+  }
+  .client-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75em;
+    border-bottom: 1px solid #ddd;
+  }
+  .client-info {
+    flex: 1;
+  }
+  .client-email {
+    margin-left: 1em;
+    color: #555;
+  }
+  .client-actions button,
+  .client-actions a {
+    margin-left: 0.5em;
+  }
+  .delete-btn {
+    background: #e53935;
+    color: white;
+    border: none;
+    padding: 0.4em 0.8em;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .credits-link {
+    background: #1976d2;
+    color: white;
+    padding: 0.4em 0.8em;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+</style>

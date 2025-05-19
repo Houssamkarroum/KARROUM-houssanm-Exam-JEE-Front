@@ -1,25 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../services/client.service';
 import { Client } from '../../model/client.model';
-
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-client-list',
-  templateUrl: './client-list.component.html'
+  templateUrl: './client-list.component.html',
+   standalone: true,
+  imports: [CommonModule, FormsModule, RouterModule],
 })
 export class ClientListComponent implements OnInit {
-  clients: Client[] = [];
+  clients!: Client[];
 
   constructor(private clientService: ClientService) {}
 
-  ngOnInit(): void {
-    this.loadClients();
+  ngOnInit() {
+    this.clientService.getAll().subscribe(data => {
+      this.clients = data;
+    });
   }
 
-  loadClients(): void {
-    this.clientService.getAll().subscribe(data => this.clients = data);
-  }
-
-  deleteClient(id: number): void {
-    this.clientService.delete(id).subscribe(() => this.loadClients());
+  deleteClient(client : Client) {
+    this.clientService.delete(client.id!).subscribe(() => {
+      this.clients = this.clients.filter(c => c.id !== client.id);
+    });
   }
 }
